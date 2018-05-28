@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<br>
+
+<div class="list">
+  <thead >
+  <tr>
+  <th>Image</th>
+  <th>Title</th>
+  <th>Year</th>
+  <th>Type</th>
+  <th>Genre</th>
+  <th>Rated</th>
+  <th>Runtime</th>
+  <th>imdbRating</th>
+  <th>imdbVotes</th>
+  <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody class="mat-table" *ngFor="let movie of movieList">
+  <tr>
+    <td>
+      <img [src]="movie.Poster" style="width: 60px;height: 85px;">
+    </td>
+    <td>{{movie.Title}}</td>
+    <td>{{movie.Year}}</td>
+    <td>{{movie.Type}}</td>
+    <td>{{movie.Genre}}</td>
+    <td>{{movie.Rated}}</td>
+    <td>{{movie.Runtime}}</td>
+    <td>{{movie.imdbRating}}</td>
+    <td>{{movie.imdbVotes}}</td>
+    <td>
+      <button mat-icon-button color="warn" (click)="onDeleteMovie(movie.id)">
+        <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</div>

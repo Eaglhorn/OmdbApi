@@ -1,0 +1,85 @@
+<div class="wrap">
+
+<h1 style="color: white">Search Film</h1>
+
+<label style="font-weight: 600;">Movie Title : </label>
+<mat-form-field class="example-form-field">
+  <input matInput type="text" placeholder="Search" [(ngModel)]="title" (keydown)="onSearch(title, page)"/>
+  <button mat-button *ngIf="title" matSuffix mat-icon-button aria-label="Clear" (click)="title=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<button mat-button (click)="onSearch(title, page)">
+  <mat-icon>search</mat-icon>
+</button>
+
+
+<br>
+<br>
+
+  <mat-list *ngIf="list===true">
+
+    <mat-list-item class="mat-list-item" *ngFor=" let movie of result.Search">
+      <a class="mat-button" (click)="onDetail(movie.Title)">
+      <img class="list-img" [src]="movie.Poster">
+      <span>{{movie.Title}} ({{movie.Year}})</span>
+      </a>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+  </mat-list>
+
+
+
+<div class="paginator">
+  <div style="font-weight: bold">Page number: {{page}}</div>
+  <button class="mat-paginator-navigation-previous mat-icon-button" (click)="onPaginationP(title, page)">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+
+  <button class="mat-paginator-navigation-next mat-icon-button" (click)="onPaginationN(title, page)">
+    <mat-icon>navigate_next</mat-icon>
+  </button>
+</div>
+</div>
+
+  <mat-card class="example-card"  *ngIf="detailResult" #details>
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{detailResult.Title}}</h2>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="card-img">
+      <img  [src]="detailResult.Poster">
+      </div>
+      <div class="details">
+        <div class="rating">
+        <mat-icon class="mat-icon" id="grade">grade</mat-icon> <b style="margin-right: 20px;">{{detailResult.imdbRating}}</b>
+        <mat-icon class="mat-icon" id="thumbup">thumb_up</mat-icon> <b>{{detailResult.imdbVotes}}</b>
+         <hr>
+        </div>
+
+        <br>
+       <div class="info">
+         <div><label>Director:</label> <span>{{detailResult.Director}}</span></div>
+         <div><label>Actors:</label> <span>{{detailResult.Actors}}</span></div>
+         <div><label>Production:</label> <span>{{detailResult.Production}}</span></div>
+         <div><label>Genre:</label> <span>{{detailResult.Genre}}</span></div>
+         <div><label>Country:</label> <span>{{detailResult.Country}}</span></div>
+         <div><label>Year:</label> <span>{{detailResult.Year}}</span></div>
+         <div><label>Runtime:</label> <span>{{detailResult.Runtime}}</span></div>
+
+        </div>
+
+
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="onAddMovie(detailResult)"><mat-icon style="color: red">favorite</mat-icon></button>
+      <div class="awards">
+        {{detailResult.Awards}}
+      </div>
+    </mat-card-actions>
+  </mat-card>

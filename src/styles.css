@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/*.wrapper {
+  background-image: url("/src/assets/img/11.jpg") ;
+}*/
+
+body {
+ /* background-color: #003947;*/
+
+  background:
+    /*linear-gradient(181deg, rgba(100,200,255,0.6), rgba(0, 0, 0, 0.9)),*/
+    url('./assets/img/2.jpg') center center no-repeat; ;
+}
+
+
+

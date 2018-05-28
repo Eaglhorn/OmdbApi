@@ -1,0 +1,10 @@
+<ul>
+  <li><a routerLink="/search" routerLinkActive="active">Search</a></li>
+  <li><a routerLink="/list" routerLinkActive="active">My List</a></li>
+
+  <div class="date" >
+    {{ date | date:'dd.MM.yyyy' }} <br>
+    {{ dateS | async | date:'HH:mm:ss' }}
+  </div>
+</ul>
+

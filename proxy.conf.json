@@ -1,0 +1,8 @@
+{
+  "/?t=*": {
+    "target": "http://www.omdbapi.com",
+    "secure": false,
+    "changeOrigin": true,
+    "loglevel": "debug"
+  }
+}
